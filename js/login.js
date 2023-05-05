@@ -8,6 +8,46 @@ class Usuario {
   }
 }
 
+//-----FUNCIONES CAMBIO DE PAGINA
+
+function Alert1() {
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Bienvenido devuelta",
+    text: "¡Esperemos te encuentres bien! ",
+    backdrop: `
+    rgba(92, 184, 92, 0.05);
+`,
+    showConfirmButton: false,
+    timer: 1500,
+  });
+
+  cambiarPagina();
+}
+
+function Alert2() {
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Bienvenido a nuestra web",
+    text: "¡Esperemos te encuentres bien! ",
+    backdrop: `
+    rgba(92, 184, 92, 0.05);
+`,
+    showConfirmButton: false,
+    timer: 1500,
+  });
+
+  cambiarPagina();
+}
+
+function cambiarPagina() {
+  setTimeout(() => {
+    window.location.href = "../pages/home.html";
+  }, 1500);
+}
+
 //-----FUNCIONES
 
 function guardarUsuario(usuario) {
@@ -49,42 +89,20 @@ acceso.addEventListener("submit", (e) => {
     guardarEnStorage(usuarios);
     acceso.reset();
 
-    //SweetAlert
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Bienvenido a nuestra web",
-      text: "¡Esperemos te encuentres bien! ",
-      backdrop: `
-      rgba(92, 184, 92, 0.05);
-  `,
-      showConfirmButton: false,
-      timer: 1500,
-    });
-
-    setTimeout(() => {
-      window.location.href = "../pages/home.html";
-    }, 1500);
+    mensajeLogin(foundUser)
+      .then((res) => {
+        Alert1();
+      })
+      .catch((rej) => {
+        Alert2;
+      });
   } else {
-    //SweetAlert
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Bienvenido devuelta",
-      text: "¡Esperemos te encuentres bien! ",
-      backdrop: `
-      rgba(92, 184, 92, 0.05);
-  `,
-      showConfirmButton: false,
-      timer: 1500,
-    });
-
-    setTimeout(() => {
-      window.location.href = "../pages/home.html";
-    }, 1500);
+    mensajeLogin(foundUser)
+      .then((res) => {
+        Alert1();
+      })
+      .catch((rej) => {
+        Alert2;
+      });
   }
 });
-
-// mensajeLogin(foundUser).then((res)=>{
-
-// })
