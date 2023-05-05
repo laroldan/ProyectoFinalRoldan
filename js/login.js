@@ -11,11 +11,16 @@ class Usuario {
 //-----FUNCIONES CAMBIO DE PAGINA
 
 function Alert1() {
+  let newUser = new Usuario(nombre.value, apellido.value);
+  guardarUsuario(newUser);
+  guardarEnStorage(usuarios);
+  acceso.reset();
+
   Swal.fire({
     position: "top-end",
     icon: "success",
     title: "Bienvenido devuelta",
-    text: "¡Esperemos te encuentres bien! ",
+    text: `¡Esperemos te encuentres bien! ${newUser.nombre} ${newUser.apellido}`,
     backdrop: `
     rgba(92, 184, 92, 0.05);
 `,
@@ -31,7 +36,7 @@ function Alert2() {
     position: "top-end",
     icon: "success",
     title: "Bienvenido a nuestra web",
-    text: "¡Esperemos te encuentres bien! ",
+    text: `¡Esperemos te encuentres bien!`,
     backdrop: `
     rgba(92, 184, 92, 0.05);
 `,
@@ -83,26 +88,11 @@ acceso.addEventListener("submit", (e) => {
     );
   });
 
-  if (foundUser == false) {
-    let newUser = new Usuario(nombre.value, apellido.value);
-    guardarUsuario(newUser);
-    guardarEnStorage(usuarios);
-    acceso.reset();
-
-    mensajeLogin(foundUser)
-      .then((res) => {
-        Alert1();
-      })
-      .catch((rej) => {
-        Alert2;
-      });
-  } else {
-    mensajeLogin(foundUser)
-      .then((res) => {
-        Alert1();
-      })
-      .catch((rej) => {
-        Alert2;
-      });
-  }
+  mensajeLogin(foundUser)
+    .then((res) => {
+      Alert1();
+    })
+    .catch((rej) => {
+      Alert2();
+    });
 });
