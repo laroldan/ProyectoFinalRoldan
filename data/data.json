@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Spaghetti a la Carbonara",
+    "precio": 2200
+  },
+  {
+    "id": 2,
+    "nombre": "Spaghetti Bolognese",
+    "precio": 2400
+  },
+  {
+    "id": 3,
+    "nombre": "Fettuccine Alfredo",
+    "precio": 2000
+  },
+  {
+    "id": 4,
+    "nombre": "Udon",
+    "precio": 1400
+  },
+  {
+    "id": 5,
+    "nombre": "Laksa",
+    "precio": 1600
+  },
+  {
+    "id": 6,
+    "nombre": "Pad Thai",
+    "precio": 1600
+  },
+  {
+    "id": 7,
+    "nombre": "Fideos Singapur",
+    "precio": 1900
+  },
+  {
+    "id": 8,
+    "nombre": "Pho",
+    "precio": 1500
+  },
+  {
+    "id": 9,
+    "nombre": "Ramen",
+    "precio": 1200
+  }
+]
